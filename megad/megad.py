@@ -470,8 +470,7 @@ class Server(object):
         # need to send headers and body in one packet as required by MegaD-328
         tcp_cork(request.transport, True)
         tcp_nodelay(request.transport, False)
-
-        response = aiohttp.web.Response(text='')
+        response = aiohttp.web.HTTPNotFound(text='')
         response.force_close()
         return response
 
